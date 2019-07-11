@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+       <h1><b>WELCOME TO HEALTH 101</b></h1>
+
+      <div>
+          <p><H2><i>Health 101</i></H2></p>
+         <h3>Your One Stop Site for Basic Health Information</h3>
+      </div>
+       
+      <h:form id="reg">
+          <h2><b>USER SIGN UP</b></h2>
+          <p><b>Fill the Fields Below to Complete Registration</b></p>
+         <h:panelGrid columns="3" columnClasses="titleCell">
+            <h:outputLabel for="id" value="User Name:"/>
+            <h:inputText id="id" value="#{newMember.id}" />
+            <h:message for="id" errorClass="invalid"/>
+
+            <h:outputLabel for="name" value="Name:"/>
+            <h:inputText id="name" value="#{newMember.name}" />
+            <h:message for="name" errorClass="invalid"/>
+
+            <h:outputLabel for="email" value="Surname:"/>
+            <h:inputText id="email" value="#{newMember.email}"/>
+            <h:message for="email" errorClass="invalid"/>
+
+            <h:outputLabel for="phoneNumber" value="Gender :"/>
+            <h:inputText id="phoneNumber" value="#{newMember.phoneNumber}"/>
+            <h:message for="phoneNumber" errorClass="invalid"/>
+           
+
+	    <h:outputLabel for="address" value="Age in Years:"/>
+            <h:inputText id="address" value="#{newMember.address}" />
+            <h:message for="address" errorClass="invalid"/>
+         </h:panelGrid>
+
+         <p>
+            <h:panelGrid columns="2">
+               <h:commandButton id="SignUP" action="#{memberController.register}" value="Register" styleClass="register"/>
+               <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                           globalOnly="true"/>
+            </h:panelGrid>
+             
+              <h:panelGrid columns="2">
+               <h:commandButton id="LogIn" action="#{memberController.register}" value="Log in " styleClass="register"/>
+               <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning"
+                           globalOnly="true"/>
+            </h:panelGrid>
+         </p>
+      </h:form>
+    
+   </ui:define>
+</ui:composition>
